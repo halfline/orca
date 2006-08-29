@@ -15,8 +15,8 @@
 
 Name:		orca
 Version:	0.9.0 
-Release:	2%{?dist}
-Summary:	flexible, extensible, and powerful assistive technology for people with visual impairments 
+Release:	3%{?dist}
+Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
 License:	LGPL
@@ -99,5 +99,8 @@ fi
 %{_datadir}/orca/glade/orca-setup.glade
 
 %changelog
+* Tue Aug 29 2006 John (J5) Palmieri <johnp@redhat.com> - 0.9.0-3
+- Spec file cleanups
+
 * Mon Aug 21 2006 John (J5) Palmieri <johnp@redhat.com> - 0.9.0-1
 - Initial package
