@@ -15,7 +15,7 @@
 
 Name:		orca
 Version:	0.9.0 
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -39,6 +39,7 @@ BuildRequires:	gnome-python2-bonobo
 BuildRequires:	gettext
 Obsoletes:	gnopernicus 
 Obsoletes:	gnome-mag
+Obsoletes:	gnome-mag-devel
 Provides:	gnopernicus
 Provides:	gnome-mag
 
@@ -99,6 +100,9 @@ fi
 %{_datadir}/orca/glade/orca-setup.glade
 
 %changelog
+* Thu Aug 31 2006 Matthias Clasen <mclasen@redhat.com> - 0.9.0-4
+- Obsolete gnome-mag-devel, too
+
 * Tue Aug 29 2006 John (J5) Palmieri <johnp@redhat.com> - 0.9.0-3
 - Spec file cleanups
 
