@@ -14,8 +14,8 @@
 %define brltty_version 3.7.2
 
 Name:		orca
-Version:	0.9.0 
-Release:	4%{?dist}
+Version:	1.0.0 
+Release:	1%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -100,6 +100,9 @@ fi
 %{_datadir}/orca/glade/orca-setup.glade
 
 %changelog
+* Sun Sep  3 2006 Matthias Clasen <mclasen@redhat.com> - 1.0.0-1
+- Update to 1.0.0
+
 * Thu Aug 31 2006 Matthias Clasen <mclasen@redhat.com> - 0.9.0-4
 - Obsolete gnome-mag-devel, too
 
