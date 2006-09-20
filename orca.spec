@@ -12,17 +12,18 @@
 %define libspi_version 1.7.6
 %define brlapi_version 0.4.1
 %define brltty_version 3.7.2
-%define control_center_verion 2.16.0-4
+%define control_center_verion 2.16.0-5
 
 Name:		orca
 Version:	1.0.0 
-Release:	2%{?dist}
+Release:	3%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
 License:	LGPL
 URL:		http://www.gnome.org/projects/orca/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/orca/1.0/orca-%{version}.tar.bz2
+Patch0:		orca-1.0.0-add-stop-switch.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:	python-devel >= %{python_version}
@@ -52,7 +53,7 @@ toolkits that support the AT-SPI (e.g., the GNOME desktop).
 
 %prep
 %setup -q
-
+%patch0 -p1 -b .add-stop-switch
 
 %build
 %configure
@@ -101,6 +102,9 @@ fi
 %{_datadir}/orca/glade/orca-setup.glade
 
 %changelog
+* Tue Sep 19 2006 John (J5) Palmieri <johnp@redhat.com> - 1.0.0-3
+- Add patch to shutdown orca
+
 * Tue Sep 19 2006 John (J5) Palmieri <johnp@redhat.com> - 1.0.0-2
 - Add requirements on gnome-mag and newer version of control-center
 - remove .desktop file and make control-center start and configure orca
