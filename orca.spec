@@ -12,10 +12,11 @@
 %define libspi_version 1.7.6
 %define brlapi_version 0.4.1
 %define brltty_version 3.7.2
+%define control_center_verion 2.16.0
 
 Name:		orca
 Version:	1.0.0 
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -38,10 +39,10 @@ BuildRequires:	perl(XML::Parser)
 BuildRequires:	gnome-python2-bonobo 
 BuildRequires:	gettext
 Obsoletes:	gnopernicus 
-Obsoletes:	gnome-mag
-Obsoletes:	gnome-mag-devel
 Provides:	gnopernicus
-Provides:	gnome-mag
+
+Requires:	gnome-mag
+Requires:	control-center >= %{control_center_version}
 
 %description
 Orca is a flexible, extensible, and powerful assistive technology for people 
@@ -66,12 +67,13 @@ make install DESTDIR=$RPM_BUILD_ROOT
 
 find $RPM_BUILD_ROOT -name '*.la' | xargs rm -f
 
+#remove the .desktop file since we configure orca through the accessibility capplet
+find $RPM_BUILD_ROOT -name '*.desktop' | xargs rm -f
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %post
-update-desktop-database &> /dev/null ||:
 touch --no-create %{_datadir}/icons/hicolor || :
 if [ -x %{_bindir}/gtk-update-icon-cache ]; then
    %{_bindir}/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor || :
@@ -93,13 +95,16 @@ fi
 %{python_sitearch}/orca/brlmodule.so
 %dir %{python_sitearch}/orca/scripts
 %{python_sitearch}/orca/scripts/*.py*
-%{_datadir}/applications/orca.desktop
 %{_datadir}/icons/hicolor/48x48/apps/orca.png
 %dir %{_datadir}/orca
 %dir %{_datadir}/orca/glade
 %{_datadir}/orca/glade/orca-setup.glade
 
 %changelog
+* Tue Sep 19 2006 John (J5) Palmieri <johnp@redhat.com> - 1.0.0-2
+- Add requirements on gnome-mag and newer version of control-center
+- remove .desktop file and make control-center start and configure orca
+
 * Sun Sep  3 2006 Matthias Clasen <mclasen@redhat.com> - 1.0.0-1
 - Update to 1.0.0
 
