@@ -12,7 +12,7 @@
 %define libspi_version 1.7.6
 %define brlapi_version 0.4.1
 %define brltty_version 3.7.2
-%define control_center_verion 2.16.0
+%define control_center_verion 2.16.0-4
 
 Name:		orca
 Version:	1.0.0 
