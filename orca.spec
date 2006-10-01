@@ -16,7 +16,7 @@
 
 Name:		orca
 Version:	1.0.0 
-Release:	3%{?dist}
+Release:	4%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -102,6 +102,9 @@ fi
 %{_datadir}/orca/glade/orca-setup.glade
 
 %changelog
+*  Sun Oct 01 2006 Jesse Keating <jkeating@redhat.com> - 1.0.0-4
+- rebuilt for unwind info generation, broken in gcc-4.1.1-21
+
 * Tue Sep 19 2006 John (J5) Palmieri <johnp@redhat.com> - 1.0.0-3
 - Add patch to shutdown orca
 
