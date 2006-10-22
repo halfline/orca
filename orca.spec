@@ -99,7 +99,9 @@ fi
 %{_datadir}/icons/hicolor/48x48/apps/orca.png
 %dir %{_datadir}/orca
 %dir %{_datadir}/orca/glade
-%{_datadir}/orca/glade/orca-setup.glade
+%{_datadir}/orca/glade/*
+%{_datadir}/man/man1/orca.1.gz
+
 
 %changelog
 * Sat Oct 21 2006 Matthias Clasen <mclasen@redhat.com> - 2.17.1-1
