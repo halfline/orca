@@ -15,8 +15,8 @@
 %define control_center_verion 2.16.0-5
 
 Name:		orca
-Version:	1.0.0 
-Release:	4%{?dist}
+Version:	2.17.1
+Release:	1%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -102,6 +102,9 @@ fi
 %{_datadir}/orca/glade/orca-setup.glade
 
 %changelog
+* Sat Oct 21 2006 Matthias Clasen <mclasen@redhat.com> - 2.17.1-1
+- Update to 2.17.1
+
 *  Sun Oct 01 2006 Jesse Keating <jkeating@redhat.com> - 1.0.0-4
 - rebuilt for unwind info generation, broken in gcc-4.1.1-21
 
