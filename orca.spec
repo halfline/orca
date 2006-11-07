@@ -15,8 +15,8 @@
 %define control_center_version 2.16.0-5
 
 Name:		orca
-Version:	2.17.1
-Release:	2%{?dist}
+Version:	2.17.2
+Release:	1%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -104,6 +104,9 @@ fi
 
 
 %changelog
+* Tue Nov  7 2006 Matthias Clasen <mclasen@redhat.com> - 2.17.2-1
+- Update to orca 2.17.2
+
 * Tue Nov  7 2006 Matthias Clasen <mclasen@redhat.com> - 2.17.1-2
 - Fix typos in the spec
 
