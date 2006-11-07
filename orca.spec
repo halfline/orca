@@ -12,11 +12,11 @@
 %define libspi_version 1.7.6
 %define brlapi_version 0.4.1
 %define brltty_version 3.7.2
-%define control_center_verion 2.16.0-5
+%define control_center_version 2.16.0-5
 
 Name:		orca
 Version:	2.17.1
-Release:	1%{?dist}
+Release:	2%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -29,7 +29,7 @@ BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildRequires:	python-devel >= %{python_version}
 BuildRequires:	brlapi-devel >= %{brlapi_version}
 BuildRequires:	brltty >= %{brltty_version}
-BuildRequires:	pyorbit-devel >= %{pyorbit_verion}
+BuildRequires:	pyorbit-devel >= %{pyorbit_version}
 BuildRequires: 	pygtk2-devel >= %{pygtk2_version}
 BuildRequires:	atk-devel >= %{atk_version}
 BuildRequires:	gail-devel >= %{gail_version}
@@ -104,6 +104,9 @@ fi
 
 
 %changelog
+* Tue Nov  7 2006 Matthias Clasen <mclasen@redhat.com> - 2.17.1-2
+- Fix typos in the spec
+
 * Sat Oct 21 2006 Matthias Clasen <mclasen@redhat.com> - 2.17.1-1
 - Update to 2.17.1
 
