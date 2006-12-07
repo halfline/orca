@@ -1,6 +1,6 @@
 %{!?python_sitearch: %define python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
 
-%define python_version 2.4
+%define python_version 2.5
 %define pyorbit_version 2.0.1
 %define pygtk2_version 2.6.2
 %define gnome_python_version 2.6.2
@@ -16,7 +16,7 @@
 
 Name:		orca
 Version:	2.17.3
-Release:	1%{?dist}
+Release: 2%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -104,6 +104,9 @@ fi
 
 
 %changelog
+* Thu Dec  7 2006 Jeremy Katz <katzj@redhat.com> - 2.17.3-2
+- rebuild for python 2.5
+
 * Tue Dec  5 2006 Matthias Clasen <mclasen@redhat.com> - 2.17.3-1
 - Update to orca 2.17.3
 
