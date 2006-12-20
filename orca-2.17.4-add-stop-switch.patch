@@ -1,0 +1,43 @@
+--- orca-2.17.4/src/orca/orca.py.add-stop-switch	2006-12-12 20:21:31.000000000 -0500
++++ orca-2.17.4/src/orca/orca.py	2006-12-20 01:12:04.000000000 -0500
+@@ -1297,7 +1297,10 @@
+              "gui-setup",
+              "text-setup",
+              "no-setup",
+-             "version"])
++             "version",
++	     "stop"])
++
++	do_shutdown = False
+         for opt, val in opts:
+             if opt in ("-u", "--user-prefs-dir"):
+                 userPrefsDir = val.strip();
+@@ -1353,6 +1356,9 @@
+             if opt in ("-v", "--version"):
+                 print "Orca %s" % platform.version
+                 os._exit(0)
++	    if opt in ("--stop"):
++	    	do_shutdown = True
++		bypassSetup = True
+     except:
+         debug.printException(debug.LEVEL_OFF)
+         usage()
+@@ -1368,7 +1374,7 @@
+     import commands
+     a11yEnabled = commands.getoutput(\
+         "gconftool-2 --get /desktop/gnome/interface/accessibility")
+-    if (not bypassSetup) and (a11yEnabled != "true"):
++    if (not bypassSetup) and (a11yEnabled != "true" and not do_shutdown):
+         _showPreferencesConsole()
+         abort()
+ 
+@@ -1388,6 +1394,9 @@
+     registry = atspi.Registry()
+     init(registry)
+ 
++    if do_shutdown:
++        shutdown()
++
+     # Check to see if the user wants the configuration GUI. It's
+     # done here so that the user's existing preferences can be used
+     # to set the initial GUI state.  We'll also force the set to

@@ -23,7 +23,7 @@ Group:		User Interface/Desktops
 License:	LGPL
 URL:		http://www.gnome.org/projects/orca/
 Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/orca/1.0/orca-%{version}.tar.bz2
-Patch0:		orca-1.0.0-add-stop-switch.patch
+Patch0:		orca-2.17.4-add-stop-switch.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:	python-devel >= %{python_version}
