@@ -15,14 +15,14 @@
 %define control_center_version 2.16.0-5
 
 Name:		orca
-Version:	2.17.90
+Version:	2.17.91
 Release: 	1%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
 License:	LGPL
 URL:		http://www.gnome.org/projects/orca/
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/orca/1.0/orca-%{version}.tar.bz2
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/orca/2.17/orca-%{version}.tar.bz2
 Patch0:		orca-2.17.4-add-stop-switch.patch
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -100,10 +100,13 @@ fi
 %dir %{_datadir}/orca
 %dir %{_datadir}/orca/glade
 %{_datadir}/orca/glade/*
-%{_datadir}/man/man1/orca.1.gz
+%{_mandir}/man1/orca.1.gz
 
 
 %changelog
+* Sun Feb 11 2007 Matthias Clasen <mclasen@redhat.com> - 2.17.91-1
+- Update to 2.17.91
+
 * Mon Jan 22 2007 Matthias Clasen <mclasen@redhat.com> - 2.17.90-1
 - Update to 2.17.90
 
