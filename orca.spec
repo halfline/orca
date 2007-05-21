@@ -15,15 +15,14 @@
 %define control_center_version 2.16.0-5
 
 Name:		orca
-Version:	2.18.0
+Version:	2.19.2
 Release: 	1%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
 License:	LGPL
 URL:		http://www.gnome.org/projects/orca/
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/orca/2.18/orca-%{version}.tar.bz2
-Patch0:		orca-2.17.4-add-stop-switch.patch
+Source0:	ftp://download.gnome.org/sources/orca/2.19/orca-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:	python-devel >= %{python_version}
@@ -53,7 +52,6 @@ toolkits that support the AT-SPI (e.g., the GNOME desktop).
 
 %prep
 %setup -q
-%patch0 -p1 -b .add-stop-switch
 
 %build
 %configure
@@ -104,6 +102,9 @@ fi
 
 
 %changelog
+* Sun May 20 2007 Matthias Clasen <mclasen@redhat.com> - 2.19.2-1
+- Update to 2.19.2
+
 * Tue Mar 13 2007 Matthias Clasen <mclasen@redhat.com> - 2.18.0-1
 - Update to 2.18.0
 
