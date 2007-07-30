@@ -94,7 +94,8 @@ fi
 %{python_sitearch}/orca/brlmodule.so
 %dir %{python_sitearch}/orca/scripts
 %{python_sitearch}/orca/scripts/*.py*
-%{_datadir}/icons/hicolor/48x48/apps/orca.png
+%{_datadir}/icons/hicolor/*/apps/orca.png
+%{_datadir}/icons/hicolor/scalable/apps/orca.svg
 %dir %{_datadir}/orca
 %dir %{_datadir}/orca/glade
 %{_datadir}/orca/glade/*
