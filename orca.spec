@@ -16,11 +16,11 @@
 
 Name:		orca
 Version:	2.19.6
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
-License:	LGPL
+License:	LGPLv2+
 URL:		http://www.gnome.org/projects/orca/
 Source0:	http://download.gnome.org/sources/orca/2.19/orca-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
@@ -87,7 +87,7 @@ fi
 
 %files -f %{name}.lang
 %defattr(-,root,root,-)
-%doc AUTHORS ChangeLog COPYING NEWS README
+%doc AUTHORS COPYING NEWS README
 %{_bindir}/orca
 %dir %{python_sitearch}/orca
 %{python_sitearch}/orca/*.py*
@@ -103,6 +103,9 @@ fi
 
 
 %changelog
+* Tue Aug  7 2007 Matthias Clasen <mclasen@redhat.com> - 2.19.6-2
+- Update license field
+
 * Sun Jul 29 2007 Matthias Clasen <mclasen@redhat.com> - 2.19.6-1
 - Update to 2.19.6
 
