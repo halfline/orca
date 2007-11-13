@@ -15,14 +15,14 @@
 %define control_center_version 2.16.0-5
 
 Name:		orca
-Version:	2.20.0.1
+Version:	2.21.2
 Release: 	1%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
 License:	LGPLv2+
 URL:		http://www.gnome.org/projects/orca/
-Source0:	http://download.gnome.org/sources/orca/2.20/orca-%{version}.tar.bz2
+Source0:	http://download.gnome.org/sources/orca/2.21/orca-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:	python-devel >= %{python_version}
@@ -103,6 +103,9 @@ fi
 
 
 %changelog
+* Tue Nov 13 2007 Matthias Clasen <mclasen@redhat.com> - 2.21.2-1
+- Update to 2.21.2
+
 * Mon Oct 15 2007 Matthias Clasen <mclasen@redhat.com> - 2.20.0.1-1
 - Update to 2.20.0.1 (bug fixes and translation updates)
 
