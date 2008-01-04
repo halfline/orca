@@ -16,7 +16,7 @@
 
 Name:		orca
 Version:	2.21.4
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -43,6 +43,7 @@ Provides:	gnopernicus
 
 Requires:	gnome-mag
 Requires:	control-center >= %{control_center_version}
+Requires:	at-spi-python
 
 %description
 Orca is a flexible, extensible, and powerful assistive technology for people 
@@ -103,6 +104,9 @@ fi
 
 
 %changelog
+* Fri Jan  4 2008 Matthias Clasen <mclasen@redhat.com> - 2.21.4-2
+- Require at-spi-python (#427432)
+
 * Tue Dec 18 2007 Matthias Clasen <mclasen@redhat.com> - 2.21.4-1
 - Update to 2.21.4
 
