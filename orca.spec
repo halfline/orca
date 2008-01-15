@@ -15,8 +15,8 @@
 %define control_center_version 2.16.0-5
 
 Name:		orca
-Version:	2.21.4
-Release: 	2%{?dist}
+Version:	2.21.5
+Release: 	1%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -104,6 +104,9 @@ fi
 
 
 %changelog
+* Mon Jan 14 2008 Matthias Clasen <mclasen@redhat.com> - 2.21.5-1
+- Update to 2.21.5
+
 * Fri Jan  4 2008 Matthias Clasen <mclasen@redhat.com> - 2.21.4-2
 - Require at-spi-python (#427432)
 
