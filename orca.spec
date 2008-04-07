@@ -16,7 +16,7 @@
 
 Name:		orca
 Version:	2.22.1
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -35,24 +35,27 @@ BuildRequires:	gail-devel >= %{gail_version}
 BuildRequires:	eel2-devel >= %{eel_version}
 BuildRequires:	at-spi-devel >= %{libspi_version}
 BuildRequires:	gnome-speech-devel >= %{gnome_speech_version}
-BuildRequires:	perl(XML::Parser) 
-BuildRequires:	gnome-python2-bonobo 
+BuildRequires:	perl(XML::Parser)
+BuildRequires:	gnome-python2-bonobo
 BuildRequires:	gettext
-Obsoletes:	gnopernicus 
+Obsoletes:	gnopernicus
 Provides:	gnopernicus
 
 Requires:	gnome-mag
 Requires:	control-center >= %{control_center_version}
 Requires:	at-spi-python
 
+Patch0:         orca-fix-signal-handling.patch
+
 %description
-Orca is a flexible, extensible, and powerful assistive technology for people 
-with visual impairments. Using various combinations of speech synthesis, 
-braille, and magnification, Orca helps provide access to applications and 
+Orca is a flexible, extensible, and powerful assistive technology for people
+with visual impairments. Using various combinations of speech synthesis,
+braille, and magnification, Orca helps provide access to applications and
 toolkits that support the AT-SPI (e.g., the GNOME desktop).
 
 %prep
 %setup -q
+%patch0 -p1 -b .signal-handling
 
 %build
 %configure
@@ -104,6 +107,9 @@ fi
 
 
 %changelog
+* Mon Apr  7 2008 Jon McCann <jmccann@redhat.com> - 2.22.1-2
+- Fix signal handling (GNOME bug #525831)
+
 * Mon Apr  7 2008 Matthias Clasen <mclasen@redhat.com> - 2.22.1-1
 - Update to 2.22.1
 
