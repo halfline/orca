@@ -45,8 +45,6 @@ Requires:	gnome-mag
 Requires:	control-center >= %{control_center_version}
 Requires:	at-spi-python
 
-Patch0:         orca-fix-signal-handling.patch
-
 %description
 Orca is a flexible, extensible, and powerful assistive technology for people
 with visual impairments. Using various combinations of speech synthesis,
@@ -55,7 +53,6 @@ toolkits that support the AT-SPI (e.g., the GNOME desktop).
 
 %prep
 %setup -q
-%patch0 -p1 -b .signal-handling
 
 %build
 %configure
