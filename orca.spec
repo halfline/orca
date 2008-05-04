@@ -16,13 +16,13 @@
 
 Name:		orca
 Version:	2.23.1
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
 License:	LGPLv2+
 URL:		http://www.gnome.org/projects/orca/
-Source0:	http://download.gnome.org/sources/orca/2.21/orca-%{version}.tar.bz2
+Source0:	http://download.gnome.org/sources/orca/2.23/orca-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildRequires:	python-devel >= %{python_version}
@@ -104,6 +104,9 @@ fi
 
 
 %changelog
+* Sun May  4 2008 Matthias Clasen <mclasen@redhat.com> - 2.23.1-2
+- Fix source url
+
 * Fri Apr 25 2008 Matthias Clasen <mclasen@redhat.com> - 2.23.1-1
 - Update to 2.23.1
 
