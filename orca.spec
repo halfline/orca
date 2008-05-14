@@ -1,4 +1,5 @@
-%{!?python_sitearch: %define python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
+%{!?python_sitelib: %define python_sitelib %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib()")}
+
 
 %define python_version 2.5
 %define pyorbit_version 2.0.1
@@ -90,11 +91,11 @@ fi
 %defattr(-,root,root,-)
 %doc AUTHORS COPYING NEWS README
 %{_bindir}/orca
-%dir %{python_sitearch}/orca
-%{python_sitearch}/orca/*.py*
-%{python_sitearch}/orca/brlmodule.so
-%dir %{python_sitearch}/orca/scripts
-%{python_sitearch}/orca/scripts/*.py*
+%dir %{python_sitelib}/orca
+%{python_sitelib}/orca/*.py*
+%{python_sitelib}/orca/brlmodule.so
+%dir %{python_sitelib}/orca/scripts
+%{python_sitelib}/orca/scripts/*.py*
 %{_datadir}/icons/hicolor/*/apps/orca.png
 %{_datadir}/icons/hicolor/scalable/apps/orca.svg
 %dir %{_datadir}/orca
