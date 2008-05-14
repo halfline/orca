@@ -91,11 +91,7 @@ fi
 %defattr(-,root,root,-)
 %doc AUTHORS COPYING NEWS README
 %{_bindir}/orca
-%dir %{python_sitearch}/orca
-%{python_sitearch}/orca/*.py*
-%{python_sitearch}/orca/brlmodule.so
-%dir %{python_sitearch}/orca/scripts
-%{python_sitearch}/orca/scripts/*.py*
+%{python_sitearch}/orca
 %{_datadir}/icons/hicolor/*/apps/orca.png
 %{_datadir}/icons/hicolor/scalable/apps/orca.svg
 %dir %{_datadir}/orca
