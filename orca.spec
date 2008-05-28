@@ -18,7 +18,7 @@
 
 Name:		orca
 Version:	2.23.2
-Release: 	2%{?dist}
+Release: 	3%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -39,6 +39,7 @@ BuildRequires:	at-spi-devel >= %{libspi_version}
 BuildRequires:	gnome-speech-devel >= %{gnome_speech_version}
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	gettext
+BuildRequires:  gnome-python2-bonobo
 Obsoletes:	gnopernicus
 Provides:	gnopernicus
 
@@ -103,6 +104,9 @@ fi
 
 
 %changelog
+* Wed May 28 2008 Jon McCann <jmccann@redhat.com> - 2.23.2-3
+- Add BuildRequires gnome-python2-bonobo back
+
 * Wed May 28 2008 Jon McCann <jmccann@redhat.com> - 2.23.2-2
 - Require gnome-python2-bonobo and gnome-python2-libwnck
 
