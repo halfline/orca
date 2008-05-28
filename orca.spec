@@ -5,6 +5,7 @@
 %define pyorbit_version 2.0.1
 %define pygtk2_version 2.6.2
 %define gnome_python_version 2.6.2
+%define gnome_python_version 2.6.2
 %define brltty_version 3.7.2
 %define atk_version 1.11.3
 %define gail_version 1.8.11
@@ -17,7 +18,7 @@
 
 Name:		orca
 Version:	2.23.2
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -37,7 +38,6 @@ BuildRequires:	eel2-devel >= %{eel_version}
 BuildRequires:	at-spi-devel >= %{libspi_version}
 BuildRequires:	gnome-speech-devel >= %{gnome_speech_version}
 BuildRequires:	perl(XML::Parser)
-BuildRequires:	gnome-python2-bonobo
 BuildRequires:	gettext
 Obsoletes:	gnopernicus
 Provides:	gnopernicus
@@ -45,6 +45,8 @@ Provides:	gnopernicus
 Requires:	gnome-mag
 Requires:	control-center >= %{control_center_version}
 Requires:	at-spi-python
+Requires:	gnome-python2-bonobo
+Requires:	gnome-python2-libwnck
 
 %description
 Orca is a flexible, extensible, and powerful assistive technology for people
@@ -101,6 +103,9 @@ fi
 
 
 %changelog
+* Wed May 28 2008 Jon McCann <jmccann@redhat.com> - 2.23.2-2
+- Require gnome-python2-bonobo and gnome-python2-libwnck
+
 * Tue May 13 2008 Matthias Clasen <mclasen@redhat.com> - 2.23.2-1
 - Update to 2.23.2
 
