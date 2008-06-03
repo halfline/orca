@@ -17,8 +17,8 @@
 %define control_center_version 2.16.0-5
 
 Name:		orca
-Version:	2.23.2
-Release: 	3%{?dist}
+Version:	2.23.3
+Release: 	1%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -104,6 +104,9 @@ fi
 
 
 %changelog
+* Tue Jun  3 2008 Matthias Clasen <mclasen@redhat.com> - 2.23.3-1
+- Update to  2.23.3
+
 * Wed May 28 2008 Jon McCann <jmccann@redhat.com> - 2.23.2-3
 - Add BuildRequires gnome-python2-bonobo back
 
