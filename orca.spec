@@ -40,6 +40,7 @@ BuildRequires:	gnome-speech-devel >= %{gnome_speech_version}
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	gettext
 BuildRequires:  gnome-python2-bonobo
+BuildRequires:  gnome-python2-libwnck
 Obsoletes:	gnopernicus
 Provides:	gnopernicus
 
