@@ -17,7 +17,7 @@
 %define control_center_version 2.16.0-5
 
 Name:		orca
-Version:	2.23.4
+Version:	2.23.5
 Release: 	1%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
@@ -104,6 +104,9 @@ fi
 
 
 %changelog
+* Tue Jul 22 2008 Matthias Clasen <mclasen@redhat.com> - 2.23.5-1
+- Update to 2.23.5
+
 * Wed Jun 18 2008 Matthias Clasen <mclasen@redhat.com> - 2.23.4-1
 - Update to 2.23.4
 
