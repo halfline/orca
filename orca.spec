@@ -40,6 +40,7 @@ BuildRequires:	gnome-speech-devel >= %{gnome_speech_version}
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	gettext
 BuildRequires:	intltool
+BuildRequires:  autoconf, automake, libtool
 BuildRequires:  gnome-python2-bonobo
 BuildRequires:  gnome-python2-libwnck
 Obsoletes:	gnopernicus
@@ -51,6 +52,9 @@ Requires:	at-spi-python
 Requires:	gnome-python2-bonobo
 Requires:	gnome-python2-libwnck
 
+# http://bugzilla.gnome.org/show_bug.cgi?id=549117
+Patch0: 	no-display.patch
+
 %description
 Orca is a flexible, extensible, and powerful assistive technology for people
 with visual impairments. Using various combinations of speech synthesis,
@@ -59,6 +63,12 @@ toolkits that support the AT-SPI (e.g., the GNOME desktop).
 
 %prep
 %setup -q
+%patch0 -p1 -b .no-display
+# no-display patch changes configure.in
+libtoolize --force --copy
+aclocal
+automake
+autoconf
 
 %build
 %configure
