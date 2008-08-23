@@ -105,7 +105,7 @@ fi
 
 
 %changelog
-* Sat Auf 23 2008 Matthias Clasen <mclasen@redhat.com> - 2.23.90-1
+* Sat Aug 23 2008 Matthias Clasen <mclasen@redhat.com> - 2.23.90-1
 - Update to 2.23.90
 
 * Tue Aug  5 2008 Matthias Clasen <mclasen@redhat.com> - 2.23.6-1
