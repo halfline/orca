@@ -18,7 +18,7 @@
 
 Name:		orca
 Version:	2.23.90
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -51,6 +51,7 @@ Requires:	control-center >= %{control_center_version}
 Requires:	at-spi-python
 Requires:	gnome-python2-bonobo
 Requires:	gnome-python2-libwnck
+Requires:	gnome-python2-gnome
 
 # http://bugzilla.gnome.org/show_bug.cgi?id=549117
 Patch0: 	no-display.patch
@@ -116,6 +117,9 @@ fi
 
 
 %changelog
+* Tue Aug 26 2008 Matthias Clasen <mclasen@redhat.com> - 2.23.90-2
+- Require gnome-python2-gnome
+
 * Sat Aug 23 2008 Matthias Clasen <mclasen@redhat.com> - 2.23.90-1
 - Update to 2.23.90
 
