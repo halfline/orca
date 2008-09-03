@@ -17,8 +17,8 @@
 %define control_center_version 2.16.0-5
 
 Name:		orca
-Version:	2.23.90
-Release: 	2%{?dist}
+Version:	2.23.91
+Release: 	1%{?dist}
 Summary:	Flexible, extensible, and powerful assistive technology
 
 Group:		User Interface/Desktops
@@ -40,7 +40,6 @@ BuildRequires:	gnome-speech-devel >= %{gnome_speech_version}
 BuildRequires:	perl(XML::Parser)
 BuildRequires:	gettext
 BuildRequires:	intltool
-BuildRequires:  autoconf, automake, libtool
 BuildRequires:  gnome-python2-bonobo
 BuildRequires:  gnome-python2-libwnck
 Obsoletes:	gnopernicus
@@ -53,9 +52,6 @@ Requires:	gnome-python2-bonobo
 Requires:	gnome-python2-libwnck
 Requires:	gnome-python2-gnome
 
-# http://bugzilla.gnome.org/show_bug.cgi?id=549117
-Patch0: 	no-display.patch
-
 %description
 Orca is a flexible, extensible, and powerful assistive technology for people
 with visual impairments. Using various combinations of speech synthesis,
@@ -64,12 +60,6 @@ toolkits that support the AT-SPI (e.g., the GNOME desktop).
 
 %prep
 %setup -q
-%patch0 -p1 -b .no-display
-# no-display patch changes configure.in
-libtoolize --force --copy
-aclocal
-automake
-autoconf
 
 %build
 %configure
@@ -117,6 +107,9 @@ fi
 
 
 %changelog
+* Tue Sep  2 2008 Matthias Clasen <mclasen@redhat.com> - 2.23.91-1
+- Update to 2.23.91
+
 * Tue Aug 26 2008 Matthias Clasen <mclasen@redhat.com> - 2.23.90-2
 - Require gnome-python2-gnome
 
