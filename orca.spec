@@ -18,12 +18,12 @@
 
 Name:		orca
 Version:	2.25.1
-Release: 	1%{?dist}
-Summary:	Flexible, extensible, and powerful assistive technology
+Release: 	2%{?dist}
+Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
 License:	LGPLv2+
-URL:		http://www.gnome.org/projects/orca/
+URL:		http://projects.gnome.org/orca/
 Source0:	http://download.gnome.org/sources/orca/2.25/orca-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
@@ -56,7 +56,7 @@ Requires:	gnome-python2-gnome
 Orca is a flexible, extensible, and powerful assistive technology for people
 with visual impairments. Using various combinations of speech synthesis,
 braille, and magnification, Orca helps provide access to applications and
-toolkits that support the AT-SPI (e.g., the GNOME desktop).
+toolkits that support AT-SPI (e.g. the GNOME desktop).
 
 %prep
 %setup -q
@@ -107,6 +107,9 @@ fi
 
 
 %changelog
+* FRi Nov 21 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.1-2
+- Tweak description
+
 * Wed Nov 12 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.1-1
 - Update to 2.25.1
 
