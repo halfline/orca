@@ -18,7 +18,7 @@
 
 Name:		orca
 Version:	2.25.1
-Release: 	2%{?dist}
+Release: 	3%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -107,6 +107,9 @@ fi
 
 
 %changelog
+* Sat Nov 29 2008 Ignacio Vazquez-Abrams <ivazqueznet+rpm@gmail.com> - 2.25.1-3
+- Rebuild for Python 2.6
+
 * FRi Nov 21 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.1-2
 - Tweak description
 
