@@ -107,7 +107,7 @@ fi
 
 
 %changelog
-* Wed Dec  3 3008 Matthias Clasen <mclasen@redhat.com> - 2.25.2-1
+* Wed Dec  3 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.2-1
 - Update to 2.25.2
 
 * Sat Nov 29 2008 Ignacio Vazquez-Abrams <ivazqueznet+rpm@gmail.com> - 2.25.1-3
