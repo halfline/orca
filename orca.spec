@@ -17,8 +17,8 @@
 %define control_center_version 2.16.0-5
 
 Name:		orca
-Version:	2.25.1
-Release: 	3%{?dist}
+Version:	2.25.2
+Release: 	1%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -107,10 +107,13 @@ fi
 
 
 %changelog
+* Wed Dec  3 3008 Matthias Clasen <mclasen@redhat.com> - 2.25.2-1
+- Update to 2.25.2
+
 * Sat Nov 29 2008 Ignacio Vazquez-Abrams <ivazqueznet+rpm@gmail.com> - 2.25.1-3
 - Rebuild for Python 2.6
 
-* FRi Nov 21 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.1-2
+* Fri Nov 21 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.1-2
 - Tweak description
 
 * Wed Nov 12 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.1-1
