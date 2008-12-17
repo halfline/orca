@@ -10,7 +10,6 @@
 %define atk_version 1.11.3
 %define gail_version 1.8.11
 %define gnome_speech_version 0.3.10
-%define eel_version 2.14.0
 %define libspi_version 1.7.6
 %define brlapi_version 0.4.1
 %define brltty_version 3.7.2
@@ -18,7 +17,7 @@
 
 Name:		orca
 Version:	2.25.3
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -34,7 +33,6 @@ BuildRequires:	pyorbit-devel >= %{pyorbit_version}
 BuildRequires: 	pygtk2-devel >= %{pygtk2_version}
 BuildRequires:	atk-devel >= %{atk_version}
 BuildRequires:	gail-devel >= %{gail_version}
-BuildRequires:	eel2-devel >= %{eel_version}
 BuildRequires:	at-spi-devel >= %{libspi_version}
 BuildRequires:	gnome-speech-devel >= %{gnome_speech_version}
 BuildRequires:	perl(XML::Parser)
@@ -107,7 +105,7 @@ fi
 
 
 %changelog
-* Wed Dec 17 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.3-1
+* Wed Dec 17 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.3-2
 - Update to 2.25.3
 
 * Wed Dec  4 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.2-2
