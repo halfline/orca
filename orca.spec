@@ -17,7 +17,7 @@
 
 Name:		orca
 Version:	2.25.91
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -105,6 +105,9 @@ fi
 
 
 %changelog
+* Thu Feb 26 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.25.91-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
+
 * Wed Feb 18 2009 Matthias Clasen <mclasen@redhat.com> - 2.25.91-1
 - Update to 2.25.91
 
