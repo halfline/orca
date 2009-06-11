@@ -17,7 +17,7 @@
 
 Name:		orca
 Version:	2.27.2
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -48,6 +48,7 @@ Requires:	at-spi-python
 Requires:	gnome-python2-bonobo
 Requires:	gnome-python2-libwnck
 Requires:	gnome-python2-gnome
+Requires:	gnome-speech
 
 %description
 Orca is a flexible, extensible, and powerful assistive technology for people
@@ -104,6 +105,9 @@ fi
 
 
 %changelog
+* Thu Jun 11 2009 Matthias Clasen <mclasen@redhat.com> - 2.27.2-2
+- Add a dependency on gnome-speech (#503193)
+
 * Sun May 31 2009 Matthias Clasen <mclasen@redhat.com> - 2.27.2-1
 - Update to 2.27.2
 
