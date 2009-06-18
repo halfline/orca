@@ -1,5 +1,6 @@
 %{!?python_sitearch: %define python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
 
+%global debug_package %{nil}
 
 %define python_version 2.5
 %define pyorbit_version 2.0.1
@@ -17,7 +18,7 @@
 
 Name:		orca
 Version:	2.27.3
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -105,6 +106,9 @@ fi
 
 
 %changelog
+* Thu Jun 18 2009 Matthias Clasen <mclasen@redhat.com> - 2.27.3-2
+- We don't have debuginfo
+
 * Tue Jun 16 2009 Matthias Clasen <mclasen@redhat.com> - 2.27.3-1
 - Update to 2.27.3
 
