@@ -99,9 +99,7 @@ fi
 %{python_sitearch}/orca
 %{_datadir}/icons/hicolor/*/apps/orca.png
 %{_datadir}/icons/hicolor/scalable/apps/orca.svg
-%dir %{_datadir}/orca
-%dir %{_datadir}/orca/glade
-%{_datadir}/orca/glade/*
+%{_datadir}/orca
 %{_mandir}/man1/orca.1.gz
 
 
