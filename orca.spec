@@ -17,8 +17,8 @@
 %define control_center_version 2.16.0-5
 
 Name:		orca
-Version:	2.27.4
-Release: 	2%{?dist}
+Version:	2.27.5
+Release: 	1%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -106,6 +106,9 @@ fi
 
 
 %changelog
+* Tue Jul 28 2009 Matthias Clasen <mclasen@redhat.com> - 2.27.5-1
+- Update to 2.27.5
+
 * Sat Jul 25 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.27.4-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_12_Mass_Rebuild
 
