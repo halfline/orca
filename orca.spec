@@ -41,6 +41,7 @@ BuildRequires:	intltool
 BuildRequires:  gnome-python2-bonobo
 BuildRequires:  gnome-python2-libwnck
 BuildRequires:  gnome-python2-gconf
+BuildRequires:  at-spi-python
 Obsoletes:	gnopernicus
 Provides:	gnopernicus
 
