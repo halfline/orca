@@ -40,6 +40,7 @@ BuildRequires:	gettext
 BuildRequires:	intltool
 BuildRequires:  gnome-python2-bonobo
 BuildRequires:  gnome-python2-libwnck
+BuildRequires:  gnome-python2-gconf
 Obsoletes:	gnopernicus
 Provides:	gnopernicus
 
@@ -48,6 +49,7 @@ Requires:	control-center >= %{control_center_version}
 Requires:	at-spi-python
 Requires:	gnome-python2-bonobo
 Requires:	gnome-python2-libwnck
+Requires:       gnome-python2-gconf
 Requires:	gnome-python2-gnome
 Requires:	gnome-speech
 
