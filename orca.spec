@@ -17,7 +17,7 @@
 %define control_center_version 2.16.0-5
 
 Name:		orca
-Version:	2.27.91
+Version:	2.27.92
 Release: 	1%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
@@ -108,6 +108,9 @@ fi
 
 
 %changelog
+* Mon Sep  7 2009 Matthias Clasen <mclasen@redhat.com> - 2.27.92-1
+- Update to 2.27.92
+
 * Mon Aug 24 2009 Matthias Clasen <mclasen@redhat.com> - 2.27.91-1
 - Update to 2.27.91
 
