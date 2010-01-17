@@ -17,7 +17,7 @@
 %define control_center_version 2.16.0-5
 
 Name:		orca
-Version:	2.29.4
+Version:	2.29.5
 Release: 	1%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
@@ -84,17 +84,17 @@ find $RPM_BUILD_ROOT -name '*.desktop' | xargs rm -f
 rm -rf $RPM_BUILD_ROOT
 
 %post
-touch --no-create %{_datadir}/icons/hicolor || :
-if [ -x %{_bindir}/gtk-update-icon-cache ]; then
-   %{_bindir}/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor || :
-fi
+touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 
 %postun
-update-desktop-database &> /dev/null ||:
-touch --no-create %{_datadir}/icons/hicolor || :
-if [ -x %{_bindir}/gtk-update-icon-cache ]; then
-   %{_bindir}/gtk-update-icon-cache --quiet %{_datadir}/icons/hicolor || :
+update-desktop-database &>/dev/null ||:
+if [ $1 -eq 0 ]; then
+   touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
+   gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 fi
+
+%posttrans
+gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files -f %{name}.lang
 %defattr(-,root,root,-)
@@ -108,6 +108,9 @@ fi
 
 
 %changelog
+* Sun Jan 17 2010 Matthias Clasen <mclasen@redhat.com> - 2.29.5-1
+- Update to 2.29.5
+
 * Tue Dec 22 2009 Matthias Clasen <mclasen@redhat.com> - 2.29.4-1
 - Update to 2.29.4
 
