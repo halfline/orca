@@ -18,7 +18,7 @@
 
 Name:		orca
 Version:	2.31.3
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -47,7 +47,7 @@ Provides:	gnopernicus
 
 Requires:	gnome-mag
 Requires:	control-center >= %{control_center_version}
-Requires:	at-spi-python
+Requires:	pyatspi
 Requires:	gnome-python2-bonobo
 Requires:	gnome-python2-libwnck
 Requires:       gnome-python2-gconf
@@ -103,6 +103,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Wed Jun 16 2010 Matthias Clasen <mclasen@redhat.com> - 2.31.3-2
+- Require pyatspi, not at-spi-python
+
 * Tue Jun  8 2010 Matthias Clasen <mclasen@redhat.com> - 2.31.3-1
 - Update to 2.31.3
 
