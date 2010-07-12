@@ -17,7 +17,7 @@
 %define control_center_version 2.16.0-5
 
 Name:		orca
-Version:	2.31.4
+Version:	2.31.5
 Release: 	1%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
@@ -103,6 +103,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Jul 12 2010 Matthias Clasen <mclasen@redhat.com> - 2.31.5-1
+- Update to 2.31.5
+
 * Tue Jun 29 2010 Matthias Clasen <mclasen@redhat.com> - 2.31.4-1
 - Update to 2.31.4
 
