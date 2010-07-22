@@ -18,7 +18,7 @@
 
 Name:		orca
 Version:	2.31.5
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -103,6 +103,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Wed Jul 21 2010 David Malcolm <dmalcolm@redhat.com> - 2.31.5-2
+- Rebuilt for https://fedoraproject.org/wiki/Features/Python_2.7/MassRebuild
+
 * Mon Jul 12 2010 Matthias Clasen <mclasen@redhat.com> - 2.31.5-1
 - Update to 2.31.5
 
