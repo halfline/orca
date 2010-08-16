@@ -8,8 +8,6 @@
 %define gnome_python_version 2.6.2
 %define gnome_python_version 2.6.2
 %define brltty_version 3.7.2
-%define atk_version 1.11.3
-%define gail_version 1.8.11
 %define gnome_speech_version 0.3.10
 %define libspi_version 1.7.6
 %define brlapi_version 0.4.1
@@ -18,7 +16,7 @@
 
 Name:		orca
 Version:	2.31.6
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -31,9 +29,6 @@ BuildRequires:	brlapi-devel >= %{brlapi_version}
 BuildRequires:	brltty >= %{brltty_version}
 BuildRequires:	pyorbit-devel >= %{pyorbit_version}
 BuildRequires: 	pygtk2-devel >= %{pygtk2_version}
-BuildRequires:	atk-devel >= %{atk_version}
-BuildRequires:	gail-devel >= %{gail_version}
-BuildRequires:	at-spi-devel >= %{libspi_version}
 BuildRequires:	gnome-speech-devel >= %{gnome_speech_version}
 BuildRequires:	gettext
 BuildRequires:	intltool
@@ -103,6 +98,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Aug 16 2010 Matthias Clasen <mclasen@redhat.com> - 2.31.6-2
+- Curb excessive BRs
+
 * Tue Aug  3 2010 Matthias Clasen <mclasen@redhat.com> - 2.31.6-1
 - Update to 2.31.6
 
