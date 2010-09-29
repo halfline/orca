@@ -98,6 +98,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Wed Sep 29 2010 Matthias Clasen <mclasen@redhat.com> - 2.32.0-1
+- Update to 2.32.0
+
 * Tue Aug 31 2010 Matthias Clasen <mclasen@redhat.com> - 2.31.91-1
 - Update to 2.31.91
 
