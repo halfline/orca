@@ -32,6 +32,7 @@ BuildRequires: 	pygtk2-devel >= %{pygtk2_version}
 BuildRequires:	gnome-speech-devel >= %{gnome_speech_version}
 BuildRequires:	gettext
 BuildRequires:	intltool
+BuildRequires:  gnome-python2-devel
 BuildRequires:  gnome-python2-bonobo
 BuildRequires:  gnome-python2-libwnck
 BuildRequires:  gnome-python2-gconf
