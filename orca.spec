@@ -16,7 +16,7 @@
 
 Name:		orca
 Version:	2.32.0
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -43,6 +43,10 @@ Provides:	gnopernicus
 Requires:	gnome-mag
 Requires:	control-center >= %{control_center_version}
 Requires:	pyatspi
+
+# http://lists.fedoraproject.org/pipermail/desktop/2010-October/006568.html
+Requires:	at-spi-python
+
 Requires:	gnome-python2-bonobo
 Requires:	gnome-python2-libwnck
 Requires:       gnome-python2-gconf
@@ -98,6 +102,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Oct 04 2010 Ray Strode <rstrode@redhat.com> 2.32.0-2
+- Require orbit at-spi python bindings
+http://lists.fedoraproject.org/pipermail/desktop/2010-October/006568.html
+
 * Wed Sep 29 2010 Matthias Clasen <mclasen@redhat.com> - 2.32.0-1
 - Update to 2.32.0
 
