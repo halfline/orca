@@ -29,6 +29,7 @@ BuildRequires:	brlapi-devel >= %{brlapi_version}
 BuildRequires:	brltty >= %{brltty_version}
 BuildRequires:	pyorbit-devel >= %{pyorbit_version}
 BuildRequires: 	pygtk2-devel >= %{pygtk2_version}
+BuildRequires:  pyxdg
 BuildRequires:	gnome-speech-devel >= %{gnome_speech_version}
 BuildRequires:	gettext
 BuildRequires:	intltool
