@@ -39,6 +39,7 @@ BuildRequires:  gnome-python2-libwnck
 BuildRequires:  gnome-python2-gconf
 BuildRequires:  pyatspi
 BuildRequires:  dbus-python
+BuildRequires:  gnome-doc-utils
 Obsoletes:	gnopernicus
 Provides:	gnopernicus
 
