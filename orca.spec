@@ -30,6 +30,7 @@ BuildRequires:	brltty >= %{brltty_version}
 BuildRequires:	pyorbit-devel >= %{pyorbit_version}
 BuildRequires: 	pygtk2-devel >= %{pygtk2_version}
 BuildRequires:  pyxdg
+BuildRequires:  PyYAML
 BuildRequires:	gnome-speech-devel >= %{gnome_speech_version}
 BuildRequires:	gettext
 BuildRequires:	intltool
@@ -73,7 +74,24 @@ make %{?_smp_mflags}
 %install
 export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 make install DESTDIR=$RPM_BUILD_ROOT
-%find_lang %{name}
+
+%find_lang %{name} --with-gnome
+
+# save space by linking identical images in translated docs
+helpdir=$RPM_BUILD_ROOT%{_datadir}/gnome/help/%{name}
+for f in $helpdir/C/figures/*.png; do
+  b="$(basename $f)"
+  for d in $helpdir/*; do
+    if [ -d "$d" -a "$d" != "$helpdir/C" ]; then
+      g="$d/figures/$b"
+      if [ -f "$g" ]; then
+        if cmp -s $f $g; then
+          rm "$g"; ln -s "../../C/figures/$b" "$g"
+        fi
+      fi
+    fi
+  done
+done
 
 find $RPM_BUILD_ROOT -name '*.la' | xargs rm -f
 
