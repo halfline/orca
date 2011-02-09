@@ -16,7 +16,7 @@
 
 Name:		orca
 Version:	2.91.6
-Release: 	1%{?dist}
+Release: 	2%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -123,6 +123,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Feb 08 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.91.6-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
+
 * Wed Feb  2 2011 Christopher Aillon <caillon@redhat.com> - 2.91.6-1
 - Update to 2.91.6
 
