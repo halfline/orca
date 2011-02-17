@@ -116,7 +116,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/icons/hicolor/*/apps/orca.png
 %{_datadir}/icons/hicolor/scalable/apps/orca.svg
 %{_datadir}/orca
-%{_datadir}/share/applications/orca.desktop
+%{_datadir}/applications/orca.desktop
 %{_mandir}/man1/orca.1.gz
 
 
