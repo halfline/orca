@@ -16,7 +16,7 @@
 
 Name:		orca
 Version:	2.91.6
-Release: 	2%{?dist}
+Release: 	3%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -95,9 +95,6 @@ done
 
 find $RPM_BUILD_ROOT -name '*.la' | xargs rm -f
 
-#remove the .desktop file since we configure orca through the accessibility capplet
-find $RPM_BUILD_ROOT -name '*.desktop' | xargs rm -f
-
 %post
 touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
 
@@ -119,10 +116,16 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/icons/hicolor/*/apps/orca.png
 %{_datadir}/icons/hicolor/scalable/apps/orca.svg
 %{_datadir}/orca
+%{_datadir}/share/applications/orca.desktop
 %{_mandir}/man1/orca.1.gz
 
 
 %changelog
+* Thu Feb 17 2011 Bastien Nocera <bnocera@redhat.com> 2.91.6-3
+- Don't remove the desktop files, as they are "no display" anyway
+  (this would also have removed the autostart desktop file in
+  newer versions of Orca)
+
 * Tue Feb 08 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.91.6-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_15_Mass_Rebuild
 
