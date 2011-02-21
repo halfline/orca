@@ -16,7 +16,7 @@
 
 Name:		orca
 Version:	2.91.6
-Release: 	3%{?dist}
+Release: 	4%{?dist}
 Summary:	Assistive technology for people with visual impairments
 
 Group:		User Interface/Desktops
@@ -47,6 +47,7 @@ Provides:	gnopernicus
 Requires:	gnome-mag
 Requires:	control-center >= %{control_center_version}
 Requires:	pyatspi
+Requires:       PyYAML
 
 # http://lists.fedoraproject.org/pipermail/desktop/2010-October/006568.html
 Requires:	at-spi-python
@@ -56,6 +57,8 @@ Requires:	gnome-python2-libwnck
 Requires:       gnome-python2-gconf
 Requires:	gnome-python2-gnome
 Requires:	gnome-speech
+
+Requires:       speech-dispatcher
 
 %description
 Orca is a flexible, extensible, and powerful assistive technology for people
@@ -121,6 +124,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Sun Feb 20 2011 Matthias Clasen <mclasen@redhat.com> 2.91.6-4
+- Fix dependencies
+
 * Thu Feb 17 2011 Bastien Nocera <bnocera@redhat.com> 2.91.6-3
 - Don't remove the desktop files, as they are "no display" anyway
   (this would also have removed the autostart desktop file in
