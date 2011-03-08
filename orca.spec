@@ -14,26 +14,26 @@
 %define brltty_version 3.7.2
 %define control_center_version 2.16.0-5
 
-Name:		orca
-Version:	2.91.90
-Release: 	1%{?dist}
-Summary:	Assistive technology for people with visual impairments
+Name:           orca
+Version:        2.91.91
+Release:        1%{?dist}
+Summary:        Assistive technology for people with visual impairments
 
-Group:		User Interface/Desktops
-License:	LGPLv2+
-URL:		http://projects.gnome.org/orca/
+Group:          User Interface/Desktops
+License:        LGPLv2+
+URL:            http://projects.gnome.org/orca/
 #VCS: git:git://git.gnome.org/orca
-Source0:	http://download.gnome.org/sources/orca/2.91/orca-%{version}.tar.bz2
-BuildRequires:	python-devel >= %{python_version}
-BuildRequires:	brlapi-devel >= %{brlapi_version}
-BuildRequires:	brltty >= %{brltty_version}
-BuildRequires:	pyorbit-devel >= %{pyorbit_version}
-BuildRequires: 	pygtk2-devel >= %{pygtk2_version}
+Source0:        http://download.gnome.org/sources/orca/2.91/orca-%{version}.tar.bz2
+BuildRequires:  python-devel >= %{python_version}
+BuildRequires:  brlapi-devel >= %{brlapi_version}
+BuildRequires:  brltty >= %{brltty_version}
+BuildRequires:  pyorbit-devel >= %{pyorbit_version}
+BuildRequires:  pygtk2-devel >= %{pygtk2_version}
 BuildRequires:  pyxdg
 BuildRequires:  PyYAML
-BuildRequires:	gnome-speech-devel >= %{gnome_speech_version}
-BuildRequires:	gettext
-BuildRequires:	intltool
+BuildRequires:  gnome-speech-devel >= %{gnome_speech_version}
+BuildRequires:  gettext
+BuildRequires:  intltool
 BuildRequires:  gnome-python2-devel
 BuildRequires:  gnome-python2-bonobo
 BuildRequires:  gnome-python2-libwnck
@@ -41,22 +41,22 @@ BuildRequires:  gnome-python2-gconf
 BuildRequires:  pyatspi
 BuildRequires:  dbus-python
 BuildRequires:  gnome-doc-utils
-Obsoletes:	gnopernicus
-Provides:	gnopernicus
+Obsoletes:      gnopernicus
+Provides:       gnopernicus
 
-Requires:	gnome-mag
-Requires:	control-center >= %{control_center_version}
-Requires:	pyatspi
+Requires:       gnome-mag
+Requires:       control-center >= %{control_center_version}
+Requires:       pyatspi
 Requires:       PyYAML
 
 # http://lists.fedoraproject.org/pipermail/desktop/2010-October/006568.html
-Requires:	at-spi-python
+Requires:       at-spi-python
 
-Requires:	gnome-python2-bonobo
-Requires:	gnome-python2-libwnck
+Requires:       gnome-python2-bonobo
+Requires:       gnome-python2-libwnck
 Requires:       gnome-python2-gconf
-Requires:	gnome-python2-gnome
-Requires:	gnome-speech
+Requires:       gnome-python2-gnome
+Requires:       gnome-speech
 
 Requires:       speech-dispatcher
 
@@ -79,22 +79,6 @@ export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 make install DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome
-
-# save space by linking identical images in translated docs
-helpdir=$RPM_BUILD_ROOT%{_datadir}/gnome/help/%{name}
-for f in $helpdir/C/figures/*.png; do
-  b="$(basename $f)"
-  for d in $helpdir/*; do
-    if [ -d "$d" -a "$d" != "$helpdir/C" ]; then
-      g="$d/figures/$b"
-      if [ -f "$g" ]; then
-        if cmp -s $f $g; then
-          rm "$g"; ln -s "../../C/figures/$b" "$g"
-        fi
-      fi
-    fi
-  done
-done
 
 find $RPM_BUILD_ROOT -name '*.la' | xargs rm -f
 
@@ -125,6 +109,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Mar  3 2011 Matthias Clasen <mclasen@redhat.com> 2.91.91-1
+- Update to 2.91.91
+- Drop a space-saving hack
+
 * Tue Feb 22 2011 Matthias Clasen <mclasen@redhat.com> 2.91.90-1
 - Update to 2.91.90
 
