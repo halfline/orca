@@ -16,7 +16,7 @@
 
 Name:           orca
 Version:        2.91.92
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
 Group:          User Interface/Desktops
@@ -60,6 +60,10 @@ Requires:       gnome-speech
 
 Requires:       speech-dispatcher
 
+# Patch from release-team, will be redone for inclusion
+# in upstream Orca
+Patch0: use-gsettings.patch
+
 %description
 Orca is a flexible, extensible, and powerful assistive technology for people
 with visual impairments. Using various combinations of speech synthesis,
@@ -68,6 +72,7 @@ toolkits that support AT-SPI (e.g. the GNOME desktop).
 
 %prep
 %setup -q
+%patch0 -p1 -b .use-gsettings
 
 %build
 %configure
@@ -109,6 +114,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Fri Mar 25 2011 Bastien Nocera <bnocera@redhat.com> 2.91.92-2
+- Use GSettings to check whether toolkit accessibility is enabled,
+  patch from Frederic Crozat
+
 * Tue Mar 22 2011 Matthias Clasen <mclasen@redhat.com> 2.91.92-1
 - Update to 2.91.92
 
