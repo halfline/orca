@@ -6,17 +6,13 @@
 %define pyorbit_version 2.0.1
 %define pygtk2_version 2.6.2
 %define gnome_python_version 2.6.2
-%define gnome_python_version 2.6.2
-%define brltty_version 3.7.2
-%define gnome_speech_version 0.3.10
 %define libspi_version 1.7.6
 %define brlapi_version 0.4.1
 %define brltty_version 3.7.2
-%define control_center_version 2.16.0-5
 
 Name:           orca
 Version:        2.91.93
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
 Group:          User Interface/Desktops
@@ -30,8 +26,6 @@ BuildRequires:  brltty >= %{brltty_version}
 BuildRequires:  pyorbit-devel >= %{pyorbit_version}
 BuildRequires:  pygtk2-devel >= %{pygtk2_version}
 BuildRequires:  pyxdg
-BuildRequires:  PyYAML
-BuildRequires:  gnome-speech-devel >= %{gnome_speech_version}
 BuildRequires:  gettext
 BuildRequires:  intltool
 BuildRequires:  gnome-python2-devel
@@ -45,9 +39,8 @@ Obsoletes:      gnopernicus
 Provides:       gnopernicus
 
 Requires:       gnome-mag
-Requires:       control-center >= %{control_center_version}
+Requires:       control-center
 Requires:       pyatspi
-Requires:       PyYAML
 
 # http://lists.fedoraproject.org/pipermail/desktop/2010-October/006568.html
 Requires:       at-spi-python
@@ -56,7 +49,6 @@ Requires:       gnome-python2-bonobo
 Requires:       gnome-python2-libwnck
 Requires:       gnome-python2-gconf
 Requires:       gnome-python2-gnome
-Requires:       gnome-speech
 
 Requires:       speech-dispatcher
 
@@ -109,6 +101,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Sun Apr  3 2011 Matthias Clasen <mclasen@redhat.com> 2.91.93-2
+- Drop PyYAML depencency (no longer used)
+- Don't require gnome-speech (speech-dispatcher is preferred)
+
 * Fri Mar 25 2011 Matthias Clasen <mclasen@redhat.com> 2.91.93-1
 - Update to 2.91.93
 
