@@ -11,8 +11,8 @@
 %define brltty_version 3.7.2
 
 Name:           orca
-Version:        2.91.93
-Release:        2%{?dist}
+Version:        3.0.0
+Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
 Group:          User Interface/Desktops
@@ -50,6 +50,7 @@ Requires:       gnome-python2-libwnck
 Requires:       gnome-python2-gconf
 Requires:       gnome-python2-gnome
 
+Requires:       gnome-speech
 Requires:       speech-dispatcher
 
 %description
@@ -101,6 +102,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Apr  4 2011 Matthias Clasen <mclasen@redhat.com> 3.0.0-1
+- Update to 3.0.0
+- Bring the gnome-speech dependency back
+
 * Sun Apr  3 2011 Matthias Clasen <mclasen@redhat.com> 2.91.93-2
 - Drop PyYAML depencency (no longer used)
 - Don't require gnome-speech (speech-dispatcher is preferred)
