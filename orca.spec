@@ -12,7 +12,7 @@
 
 Name:           orca
 Version:        3.0.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
 Group:          User Interface/Desktops
@@ -20,6 +20,10 @@ License:        LGPLv2+
 URL:            http://projects.gnome.org/orca/
 #VCS: git:git://git.gnome.org/orca
 Source0:        http://download.gnome.org/sources/orca/2.91/orca-%{version}.tar.bz2
+
+# https://bugzilla.gnome.org/show_bug.cgi?id=647117
+Patch0:         orca-not-for-kde.patch
+
 BuildRequires:  python-devel >= %{python_version}
 BuildRequires:  brlapi-devel >= %{brlapi_version}
 BuildRequires:  brltty >= %{brltty_version}
@@ -61,6 +65,7 @@ toolkits that support AT-SPI (e.g. the GNOME desktop).
 
 %prep
 %setup -q
+%patch0 -p1 -b .not-for-kde
 
 %build
 %configure
@@ -102,6 +107,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Thu Apr  7 2011 Matthias Clasen <mclasen@redhat.com> 3.0.0-2
+- Only autostart in GNOME
+
 * Mon Apr  4 2011 Matthias Clasen <mclasen@redhat.com> 3.0.0-1
 - Update to 3.0.0
 - Bring the gnome-speech dependency back
