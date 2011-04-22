@@ -6,34 +6,32 @@
 %define pyorbit_version 2.0.1
 %define pygtk2_version 2.6.2
 %define gnome_python_version 2.6.2
-%define gnome_python_version 2.6.2
-%define brltty_version 3.7.2
-%define gnome_speech_version 0.3.10
 %define libspi_version 1.7.6
 %define brlapi_version 0.4.1
 %define brltty_version 3.7.2
-%define control_center_version 2.16.0-5
 
-Name:		orca
-Version:	2.91.6
-Release: 	3%{?dist}
-Summary:	Assistive technology for people with visual impairments
+Name:           orca
+Version:        3.0.0
+Release:        2%{?dist}
+Summary:        Assistive technology for people with visual impairments
 
-Group:		User Interface/Desktops
-License:	LGPLv2+
-URL:		http://projects.gnome.org/orca/
+Group:          User Interface/Desktops
+License:        LGPLv2+
+URL:            http://projects.gnome.org/orca/
 #VCS: git:git://git.gnome.org/orca
-Source0:	http://download.gnome.org/sources/orca/2.91/orca-%{version}.tar.bz2
-BuildRequires:	python-devel >= %{python_version}
-BuildRequires:	brlapi-devel >= %{brlapi_version}
-BuildRequires:	brltty >= %{brltty_version}
-BuildRequires:	pyorbit-devel >= %{pyorbit_version}
-BuildRequires: 	pygtk2-devel >= %{pygtk2_version}
+Source0:        http://download.gnome.org/sources/orca/2.91/orca-%{version}.tar.bz2
+
+# https://bugzilla.gnome.org/show_bug.cgi?id=647117
+Patch0:         orca-not-for-kde.patch
+
+BuildRequires:  python-devel >= %{python_version}
+BuildRequires:  brlapi-devel >= %{brlapi_version}
+BuildRequires:  brltty >= %{brltty_version}
+BuildRequires:  pyorbit-devel >= %{pyorbit_version}
+BuildRequires:  pygtk2-devel >= %{pygtk2_version}
 BuildRequires:  pyxdg
-BuildRequires:  PyYAML
-BuildRequires:	gnome-speech-devel >= %{gnome_speech_version}
-BuildRequires:	gettext
-BuildRequires:	intltool
+BuildRequires:  gettext
+BuildRequires:  intltool
 BuildRequires:  gnome-python2-devel
 BuildRequires:  gnome-python2-bonobo
 BuildRequires:  gnome-python2-libwnck
@@ -41,21 +39,23 @@ BuildRequires:  gnome-python2-gconf
 BuildRequires:  pyatspi
 BuildRequires:  dbus-python
 BuildRequires:  gnome-doc-utils
-Obsoletes:	gnopernicus
-Provides:	gnopernicus
+Obsoletes:      gnopernicus
+Provides:       gnopernicus
 
-Requires:	gnome-mag
-Requires:	control-center >= %{control_center_version}
-Requires:	pyatspi
+Requires:       gnome-mag
+Requires:       control-center
+Requires:       pyatspi
 
 # http://lists.fedoraproject.org/pipermail/desktop/2010-October/006568.html
-Requires:	at-spi-python
+Requires:       at-spi-python
 
-Requires:	gnome-python2-bonobo
-Requires:	gnome-python2-libwnck
+Requires:       gnome-python2-bonobo
+Requires:       gnome-python2-libwnck
 Requires:       gnome-python2-gconf
-Requires:	gnome-python2-gnome
-Requires:	gnome-speech
+Requires:       gnome-python2-gnome
+
+Requires:       gnome-speech
+Requires:       speech-dispatcher
 
 %description
 Orca is a flexible, extensible, and powerful assistive technology for people
@@ -65,6 +65,7 @@ toolkits that support AT-SPI (e.g. the GNOME desktop).
 
 %prep
 %setup -q
+%patch0 -p1 -b .not-for-kde
 
 %build
 %configure
@@ -76,22 +77,6 @@ export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 make install DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome
-
-# save space by linking identical images in translated docs
-helpdir=$RPM_BUILD_ROOT%{_datadir}/gnome/help/%{name}
-for f in $helpdir/C/figures/*.png; do
-  b="$(basename $f)"
-  for d in $helpdir/*; do
-    if [ -d "$d" -a "$d" != "$helpdir/C" ]; then
-      g="$d/figures/$b"
-      if [ -f "$g" ]; then
-        if cmp -s $f $g; then
-          rm "$g"; ln -s "../../C/figures/$b" "$g"
-        fi
-      fi
-    fi
-  done
-done
 
 find $RPM_BUILD_ROOT -name '*.la' | xargs rm -f
 
@@ -117,10 +102,42 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 %{_datadir}/icons/hicolor/scalable/apps/orca.svg
 %{_datadir}/orca
 %{_datadir}/applications/orca.desktop
+%{_sysconfdir}/xdg/autostart/orca-autostart.desktop
 %{_mandir}/man1/orca.1.gz
 
 
 %changelog
+* Thu Apr  7 2011 Matthias Clasen <mclasen@redhat.com> 3.0.0-2
+- Only autostart in GNOME
+
+* Mon Apr  4 2011 Matthias Clasen <mclasen@redhat.com> 3.0.0-1
+- Update to 3.0.0
+- Bring the gnome-speech dependency back
+
+* Sun Apr  3 2011 Matthias Clasen <mclasen@redhat.com> 2.91.93-2
+- Drop PyYAML depencency (no longer used)
+- Don't require gnome-speech (speech-dispatcher is preferred)
+
+* Fri Mar 25 2011 Matthias Clasen <mclasen@redhat.com> 2.91.93-1
+- Update to 2.91.93
+
+* Fri Mar 25 2011 Bastien Nocera <bnocera@redhat.com> 2.91.92-2
+- Use GSettings to check whether toolkit accessibility is enabled,
+  patch from Frederic Crozat
+
+* Tue Mar 22 2011 Matthias Clasen <mclasen@redhat.com> 2.91.92-1
+- Update to 2.91.92
+
+* Mon Mar  3 2011 Matthias Clasen <mclasen@redhat.com> 2.91.91-1
+- Update to 2.91.91
+- Drop a space-saving hack
+
+* Tue Feb 22 2011 Matthias Clasen <mclasen@redhat.com> 2.91.90-1
+- Update to 2.91.90
+
+* Sun Feb 20 2011 Matthias Clasen <mclasen@redhat.com> 2.91.6-4
+- Fix dependencies
+
 * Thu Feb 17 2011 Bastien Nocera <bnocera@redhat.com> 2.91.6-3
 - Don't remove the desktop files, as they are "no display" anyway
   (this would also have removed the autostart desktop file in
