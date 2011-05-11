@@ -11,7 +11,7 @@
 %define brltty_version 3.7.2
 
 Name:           orca
-Version:        3.0.1
+Version:        3.1.1
 Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
@@ -19,7 +19,7 @@ Group:          User Interface/Desktops
 License:        LGPLv2+
 URL:            http://projects.gnome.org/orca/
 #VCS: git:git://git.gnome.org/orca
-Source0:        http://download.gnome.org/sources/orca/2.91/orca-%{version}.tar.bz2
+Source0:        http://download.gnome.org/sources/orca/3.1/orca-%{version}.tar.bz2
 
 BuildRequires:  python-devel >= %{python_version}
 BuildRequires:  brlapi-devel >= %{brlapi_version}
@@ -103,6 +103,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Wed May 11 2011 Tomas Bzatek <tbzatek@redhat.com> 3.1.1-1
+- Update to 3.1.1
+
 * Tue Apr 26 2011 Matthias Clasen <mclasen@redhat.com> 3.0.1-1
 - Update to 3.0.1
 
