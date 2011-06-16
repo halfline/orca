@@ -11,7 +11,7 @@
 %define brltty_version 3.7.2
 
 Name:           orca
-Version:        3.1.1
+Version:        3.1.2
 Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
@@ -19,10 +19,11 @@ Group:          User Interface/Desktops
 License:        LGPLv2+
 URL:            http://projects.gnome.org/orca/
 #VCS: git:git://git.gnome.org/orca
-Source0:        http://download.gnome.org/sources/orca/3.1/orca-%{version}.tar.bz2
+Source0:        http://download.gnome.org/sources/orca/3.1/orca-%{version}.tar.xz
 
 BuildRequires:  python-devel >= %{python_version}
 BuildRequires:  brlapi-devel >= %{brlapi_version}
+BuildRequires:  python-brlapi
 BuildRequires:  brltty >= %{brltty_version}
 BuildRequires:  pyorbit-devel >= %{pyorbit_version}
 BuildRequires:  pygtk2-devel >= %{pygtk2_version}
@@ -36,6 +37,8 @@ BuildRequires:  gnome-python2-gconf
 BuildRequires:  pyatspi
 BuildRequires:  dbus-python
 BuildRequires:  gnome-doc-utils
+BuildRequires:  liblouis-python
+BuildRequires:  speech-dispatcher-python
 Obsoletes:      gnopernicus
 Provides:       gnopernicus
 
@@ -53,6 +56,9 @@ Requires:       gnome-python2-gnome
 
 Requires:       gnome-speech
 Requires:       speech-dispatcher
+Requires:       speech-dispatcher-python
+Requires:       liblouis-python
+Requires:       python-brlapi
 
 %description
 Orca is a flexible, extensible, and powerful assistive technology for people
@@ -103,6 +109,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Thu Jun 16 2011 Tomas Bzatek <tbzatek@redhat.com> - 3.1.2-1
+- Update to 3.1.2
+
 * Wed May 11 2011 Tomas Bzatek <tbzatek@redhat.com> 3.1.1-1
 - Update to 3.1.1
 
