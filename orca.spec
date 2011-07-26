@@ -1,4 +1,4 @@
-%{!?python_sitearch: %define python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
+{!?python_sitearch: %define python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
 
 %global debug_package %{nil}
 
@@ -11,7 +11,7 @@
 %define brltty_version 3.7.2
 
 Name:           orca
-Version:        3.1.3
+Version:        3.1.4
 Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
@@ -109,6 +109,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Mon Jul 25 2011 Matthias Clasen <mclasen@redhat.com> 3.1.4-1
+- Update to 3.1.4
+
 * Tue Jul 05 2011 Bastien Nocera <bnocera@redhat.com> 3.1.3-1
 - Update to 3.1.3
 
