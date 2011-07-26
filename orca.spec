@@ -21,19 +21,14 @@ URL:            http://projects.gnome.org/orca/
 #VCS: git:git://git.gnome.org/orca
 Source0:        http://download.gnome.org/sources/orca/3.1/orca-%{version}.tar.xz
 
-BuildRequires:  python-devel >= %{python_version}
 BuildRequires:  brlapi-devel >= %{brlapi_version}
 BuildRequires:  python-brlapi
 BuildRequires:  brltty >= %{brltty_version}
-BuildRequires:  pyorbit-devel >= %{pyorbit_version}
-BuildRequires:  pygtk2-devel >= %{pygtk2_version}
 BuildRequires:  pyxdg
 BuildRequires:  gettext
 BuildRequires:  intltool
 BuildRequires:  gnome-python2-devel
-BuildRequires:  gnome-python2-bonobo
 BuildRequires:  gnome-python2-libwnck
-BuildRequires:  gnome-python2-gconf
 BuildRequires:  pyatspi
 BuildRequires:  dbus-python
 BuildRequires:  gnome-doc-utils
@@ -42,19 +37,11 @@ BuildRequires:  speech-dispatcher-python
 Obsoletes:      gnopernicus
 Provides:       gnopernicus
 
-Requires:       gnome-mag
 Requires:       control-center
 Requires:       pyatspi
 
-# http://lists.fedoraproject.org/pipermail/desktop/2010-October/006568.html
-Requires:       at-spi-python
-
-Requires:       gnome-python2-bonobo
 Requires:       gnome-python2-libwnck
-Requires:       gnome-python2-gconf
-Requires:       gnome-python2-gnome
 
-Requires:       gnome-speech
 Requires:       speech-dispatcher
 Requires:       speech-dispatcher-python
 Requires:       liblouis-python
