@@ -31,6 +31,7 @@ BuildRequires:  gnome-python2-devel
 BuildRequires:  gnome-python2-libwnck
 BuildRequires:  pygobject3-devel
 BuildRequires:  pyatspi
+BuildRequires:  at-spi2-core-devel
 BuildRequires:  dbus-python
 BuildRequires:  gnome-doc-utils
 BuildRequires:  liblouis-python
