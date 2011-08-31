@@ -34,6 +34,7 @@ BuildRequires:  dbus-python
 BuildRequires:  gnome-doc-utils
 BuildRequires:  liblouis-python
 BuildRequires:  speech-dispatcher-python
+BuildRequires:  gtk3-devel
 Obsoletes:      gnopernicus
 Provides:       gnopernicus
 
