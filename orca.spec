@@ -11,7 +11,7 @@
 %define brltty_version 3.7.2
 
 Name:           orca
-Version:        3.1.90
+Version:        3.1.91
 Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
@@ -86,7 +86,6 @@ fi
 gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 %files -f %{name}.lang
-%defattr(-,root,root,-)
 %doc AUTHORS COPYING NEWS README
 %{_bindir}/orca
 %{python_sitearch}/orca
@@ -99,8 +98,11 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
-* Wed Aug 31 2011 Matthias Clasen <mclasen@redhat.com> 3.1.90-1
-- Update to 3.1.90
+* Tue Sep  9 2011 Matthias Clasen <mclasen@redhat.com> 3.1.91-1
+- Update to 3.1.91
+
+* Thu Aug 18 2011 Matthias Clasen <mclasen@redhat.com> 3.1.5-1
+- Update to 3.1.5
 
 * Mon Jul 25 2011 Matthias Clasen <mclasen@redhat.com> 3.1.4-1
 - Update to 3.1.4
