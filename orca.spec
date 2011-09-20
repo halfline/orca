@@ -11,7 +11,7 @@
 %define brltty_version 3.7.2
 
 Name:           orca
-Version:        3.1.91
+Version:        3.1.92
 Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
@@ -35,6 +35,7 @@ BuildRequires:  at-spi2-core-devel
 BuildRequires:  dbus-python
 BuildRequires:  gnome-doc-utils
 BuildRequires:  liblouis-python
+BuildRequires:  liblouis-devel
 BuildRequires:  speech-dispatcher-python
 BuildRequires:  gtk3-devel
 Obsoletes:      gnopernicus
@@ -98,6 +99,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Sep 20 2011 Matthias Clasen <mclasen@redhat.com> 3.1.92-1
+- Update to 3.1.92
+
 * Tue Sep  9 2011 Matthias Clasen <mclasen@redhat.com> 3.1.91-1
 - Update to 3.1.91
 
