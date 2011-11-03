@@ -11,8 +11,8 @@
 %define brltty_version 3.7.2
 
 Name:           orca
-Version:        3.2.1
-Release:        2%{?dist}
+Version:        3.3.1
+Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
 Group:          User Interface/Desktops
@@ -99,6 +99,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Wed Nov  2 2011 Matthias Clasen <mclasen@redhat.com> - 3.3.1-1
+- Update to 3.3.1
+
 * Wed Oct 26 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 3.2.1-2
 - Rebuilt for glibc bug#747377
 
