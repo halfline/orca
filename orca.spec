@@ -11,15 +11,15 @@
 %define brltty_version 3.7.2
 
 Name:           orca
-Version:        3.2.1
-Release:        2%{?dist}
+Version:        3.3.92
+Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
 Group:          User Interface/Desktops
 License:        LGPLv2+
 URL:            http://projects.gnome.org/orca/
 #VCS: git:git://git.gnome.org/orca
-Source0:        http://download.gnome.org/sources/orca/3.2/orca-%{version}.tar.xz
+Source0:        http://download.gnome.org/sources/orca/3.3/orca-%{version}.tar.xz
 
 BuildRequires:  brlapi-devel >= %{brlapi_version}
 BuildRequires:  python-brlapi
@@ -99,6 +99,33 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Wed Mar 21 2012 Kalev Lember <kalevlember@gmail.com> - 3.3.92-1
+- Update to 3.3.92
+
+* Tue Mar  6 2012 Matthias Clasen <mclasen@redhat.com> - 3.3.91-1
+- Update to 3.3.91
+
+* Sat Feb 25 2012 Matthias Clasen <mclasen@redhat.com> - 3.3.90-1
+- Update to 3.3.90
+
+* Tue Feb  7 2012 Matthias Clasen <mclasen@redhat.com> - 3.3.5-1
+- Update to 3.3.5
+
+* Tue Jan 17 2012 Matthias Clasen <mclasen@redhat.com> - 3.3.4-1
+- Update to 3.3.4
+
+* Fri Jan 13 2012 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 3.3.3-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_17_Mass_Rebuild
+
+* Tue Dec 20 2011 Matthias Clasen <mclasen@redhat.com> - 3.3.3-1
+- Update to 3.3.3
+
+* Wed Nov 23 2011 Matthias Clasen <mclasen@redhat.com> - 3.3.2-1
+- Update to 3.3.2
+
+* Wed Nov  2 2011 Matthias Clasen <mclasen@redhat.com> - 3.3.1-1
+- Update to 3.3.1
+
 * Wed Oct 26 2011 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 3.2.1-2
 - Rebuilt for glibc bug#747377
 
