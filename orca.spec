@@ -12,7 +12,7 @@
 
 Name:           orca
 Version:        3.4.1
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
 Group:          User Interface/Desktops
@@ -27,8 +27,6 @@ BuildRequires:  brltty >= %{brltty_version}
 BuildRequires:  pyxdg
 BuildRequires:  gettext
 BuildRequires:  intltool
-BuildRequires:  gnome-python2-devel
-BuildRequires:  gnome-python2-libwnck
 BuildRequires:  pygobject3-devel
 BuildRequires:  pyatspi
 BuildRequires:  at-spi2-core-devel
@@ -42,10 +40,9 @@ Obsoletes:      gnopernicus
 Provides:       gnopernicus
 
 Requires:       control-center
+Requires:       libwnck3
 Requires:       pyatspi
-
-Requires:       gnome-python2-libwnck
-
+Requires:       pyxdg
 Requires:       speech-dispatcher
 Requires:       speech-dispatcher-python
 Requires:       liblouis-python
@@ -99,6 +96,10 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Apr 17 2012 Kalev Lember <kalevlember@gmail.com> - 3.4.1-2
+- Don't depend on gnome 2 python libs (#716719)
+- Require pyxdg (#761306)
+
 * Tue Apr 17 2012 Kalev Lember <kalevlember@gmail.com> - 3.4.1-1
 - Update to 3.4.1
 
