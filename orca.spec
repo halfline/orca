@@ -11,15 +11,15 @@
 %define brltty_version 3.7.2
 
 Name:           orca
-Version:        3.3.92
-Release:        1%{?dist}
+Version:        3.4.1
+Release:        2%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
 Group:          User Interface/Desktops
 License:        LGPLv2+
 URL:            http://projects.gnome.org/orca/
 #VCS: git:git://git.gnome.org/orca
-Source0:        http://download.gnome.org/sources/orca/3.3/orca-%{version}.tar.xz
+Source0:        http://download.gnome.org/sources/orca/3.4/orca-%{version}.tar.xz
 
 BuildRequires:  brlapi-devel >= %{brlapi_version}
 BuildRequires:  python-brlapi
@@ -27,8 +27,6 @@ BuildRequires:  brltty >= %{brltty_version}
 BuildRequires:  pyxdg
 BuildRequires:  gettext
 BuildRequires:  intltool
-BuildRequires:  gnome-python2-devel
-BuildRequires:  gnome-python2-libwnck
 BuildRequires:  pygobject3-devel
 BuildRequires:  pyatspi
 BuildRequires:  at-spi2-core-devel
@@ -42,10 +40,9 @@ Obsoletes:      gnopernicus
 Provides:       gnopernicus
 
 Requires:       control-center
+Requires:       libwnck3
 Requires:       pyatspi
-
-Requires:       gnome-python2-libwnck
-
+Requires:       pyxdg
 Requires:       speech-dispatcher
 Requires:       speech-dispatcher-python
 Requires:       liblouis-python
@@ -99,6 +96,16 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Apr 17 2012 Kalev Lember <kalevlember@gmail.com> - 3.4.1-2
+- Don't depend on gnome 2 python libs (#716719)
+- Require pyxdg (#761306)
+
+* Tue Apr 17 2012 Kalev Lember <kalevlember@gmail.com> - 3.4.1-1
+- Update to 3.4.1
+
+* Tue Mar 27 2012 Kalev Lember <kalevlember@gmail.com> - 3.4.0-1
+- Update to 3.4.0
+
 * Wed Mar 21 2012 Kalev Lember <kalevlember@gmail.com> - 3.3.92-1
 - Update to 3.3.92
 
