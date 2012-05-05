@@ -2,24 +2,19 @@
 
 %global debug_package %{nil}
 
-%define python_version 2.5
-%define pyorbit_version 2.0.1
-%define pygtk2_version 2.6.2
-%define gnome_python_version 2.6.2
-%define libspi_version 1.7.6
 %define brlapi_version 0.4.1
 %define brltty_version 3.7.2
 
 Name:           orca
-Version:        3.4.1
-Release:        2%{?dist}
+Version:        3.5.1
+Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
 Group:          User Interface/Desktops
 License:        LGPLv2+
 URL:            http://projects.gnome.org/orca/
 #VCS: git:git://git.gnome.org/orca
-Source0:        http://download.gnome.org/sources/orca/3.4/orca-%{version}.tar.xz
+Source0:        http://download.gnome.org/sources/orca/3.5/orca-%{version}.tar.xz
 
 BuildRequires:  brlapi-devel >= %{brlapi_version}
 BuildRequires:  python-brlapi
@@ -96,6 +91,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Sat May 05 2012 Kalev Lember <kalevlember@gmail.com> - 3.5.1-1
+- Update to 3.5.1
+
 * Tue Apr 17 2012 Kalev Lember <kalevlember@gmail.com> - 3.4.1-2
 - Don't depend on gnome 2 python libs (#716719)
 - Require pyxdg (#761306)
