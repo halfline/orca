@@ -11,8 +11,8 @@
 %define brltty_version 3.7.2
 
 Name:           orca
-Version:        3.4.1
-Release:        2%{?dist}
+Version:        3.4.2
+Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
 Group:          User Interface/Desktops
@@ -96,6 +96,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue May 15 2012 Richard Hughes <hughsient@gmail.com> - 3.4.2-1
+- Update to 3.4.2
+
 * Tue Apr 17 2012 Kalev Lember <kalevlember@gmail.com> - 3.4.1-2
 - Don't depend on gnome 2 python libs (#716719)
 - Require pyxdg (#761306)
