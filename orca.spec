@@ -6,7 +6,7 @@
 %define brltty_version 3.7.2
 
 Name:           orca
-Version:        3.5.4
+Version:        3.5.90
 Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
@@ -91,6 +91,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Aug 21 2012 Richard Hughes <hughsient@gmail.com> - 3.5.90-1
+- Update to 3.5.90
+
 * Wed Jul 18 2012 Kalev Lember <kalevlember@gmail.com> - 3.5.4-1
 - Back down to 3.5.4, we want to stick with python 2.7 for now
 
