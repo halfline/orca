@@ -1,12 +1,10 @@
-%{!?python_sitearch: %define python_sitearch %(%{__python} -c "from distutils.sysconfig import get_python_lib; print get_python_lib(1)")}
-
 %global debug_package %{nil}
 
-%define brlapi_version 0.4.1
-%define brltty_version 3.7.2
+%define brlapi_version 0.5.1
+%define brltty_version 3.9
 
 Name:           orca
-Version:        3.5.92
+Version:        3.6.0
 Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
@@ -14,7 +12,7 @@ Group:          User Interface/Desktops
 License:        LGPLv2+
 URL:            http://projects.gnome.org/orca/
 #VCS: git:git://git.gnome.org/orca
-Source0:        http://download.gnome.org/sources/orca/3.5/orca-%{version}.tar.xz
+Source0:        http://download.gnome.org/sources/orca/3.6/orca-%{version}.tar.xz
 
 BuildRequires:  brlapi-devel >= %{brlapi_version}
 BuildRequires:  python-brlapi
@@ -26,7 +24,6 @@ BuildRequires:  pygobject3-devel
 BuildRequires:  pyatspi
 BuildRequires:  at-spi2-core-devel
 BuildRequires:  dbus-python
-BuildRequires:  gnome-doc-utils
 BuildRequires:  liblouis-python
 BuildRequires:  liblouis-devel
 BuildRequires:  speech-dispatcher-python
@@ -42,7 +39,7 @@ Requires:       pyxdg
 Requires:       speech-dispatcher
 Requires:       speech-dispatcher-python
 Requires:       liblouis-python
-Requires:       python-brlapi
+Requires:       python-brlapi >= %{brlapi_version}
 
 %description
 Orca is a flexible, extensible, and powerful assistive technology for people
@@ -59,7 +56,6 @@ make %{?_smp_mflags}
 
 
 %install
-export GCONF_DISABLE_MAKEFILE_SCHEMA_INSTALL=1
 make install DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome
@@ -92,6 +88,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Sep 25 2012 Kalev Lember <kalevlember@gmail.com> - 3.6.0-1
+- Update to 3.6.0
+
 * Tue Sep 18 2012 Kalev Lember <kalevlember@gmail.com> - 3.5.92-1
 - Update to 3.5.92
 
