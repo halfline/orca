@@ -4,7 +4,7 @@
 %define brltty_version 3.9
 
 Name:           orca
-Version:        3.6.2
+Version:        3.6.3
 Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
@@ -88,6 +88,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Wed Nov 14 2012 Kalev Lember <kalevlember@gmail.com> - 3.6.3-1
+- Update to 3.6.3
+
 * Mon Nov 12 2012 Kalev Lember <kalevlember@gmail.com> - 3.6.2-1
 - Update to 3.6.2
 
