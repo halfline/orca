@@ -179,7 +179,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 * Tue Sep 20 2011 Matthias Clasen <mclasen@redhat.com> 3.1.92-1
 - Update to 3.1.92
 
-* Tue Sep  9 2011 Matthias Clasen <mclasen@redhat.com> 3.1.91-1
+* Fri Sep  9 2011 Matthias Clasen <mclasen@redhat.com> 3.1.91-1
 - Update to 3.1.91
 
 * Thu Aug 18 2011 Matthias Clasen <mclasen@redhat.com> 3.1.5-1
@@ -221,7 +221,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 * Tue Mar 22 2011 Matthias Clasen <mclasen@redhat.com> 2.91.92-1
 - Update to 2.91.92
 
-* Mon Mar  3 2011 Matthias Clasen <mclasen@redhat.com> 2.91.91-1
+* Thu Mar  3 2011 Matthias Clasen <mclasen@redhat.com> 2.91.91-1
 - Update to 2.91.91
 - Drop a space-saving hack
 
@@ -382,7 +382,7 @@ http://lists.fedoraproject.org/pipermail/desktop/2010-October/006568.html
 * Wed Dec 17 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.3-2
 - Update to 2.25.3
 
-* Wed Dec  4 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.2-2
+* Thu Dec  4 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.2-2
 - Rebuild for Python 2.6
 
 * Wed Dec  3 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.2-1
@@ -520,7 +520,7 @@ http://lists.fedoraproject.org/pipermail/desktop/2010-October/006568.html
 * Thu Jan 11 2007 Matthias Clasen <mclasen@redhat.com> - 2.17.5-1
 - Update to orca 2.17.5
 
-* Wed Dec 19 2006 Matthias Clasen <mclasen@redhat.com> - 2.17.4-1
+* Tue Dec 19 2006 Matthias Clasen <mclasen@redhat.com> - 2.17.4-1
 - Update to orca 2.17.4
 
 * Thu Dec  7 2006 Jeremy Katz <katzj@redhat.com> - 2.17.3-2
