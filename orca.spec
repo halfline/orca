@@ -29,6 +29,7 @@ BuildRequires:  liblouis-devel
 BuildRequires:  speech-dispatcher-python
 BuildRequires:  gtk3-devel
 BuildRequires:  itstool
+BuildRequires:  python3
 Obsoletes:      gnopernicus
 Provides:       gnopernicus
 
