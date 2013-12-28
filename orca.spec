@@ -5,7 +5,7 @@
 
 Name:           orca
 Version:        3.6.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
 Group:          User Interface/Desktops
@@ -88,6 +88,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 3.6.3-2
+- Mass rebuild 2013-12-27
+
 * Wed Nov 14 2012 Kalev Lember <kalevlember@gmail.com> - 3.6.3-1
 - Update to 3.6.3
 
