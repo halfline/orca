@@ -5,7 +5,7 @@
 
 Name:           orca
 Version:        3.6.3
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
 Group:          User Interface/Desktops
@@ -17,7 +17,6 @@ Source0:        http://download.gnome.org/sources/orca/3.6/orca-%{version}.tar.x
 BuildRequires:  brlapi-devel >= %{brlapi_version}
 BuildRequires:  python-brlapi
 BuildRequires:  brltty >= %{brltty_version}
-BuildRequires:  pyxdg
 BuildRequires:  gettext
 BuildRequires:  intltool
 BuildRequires:  pygobject3-devel
@@ -35,7 +34,6 @@ Provides:       gnopernicus
 Requires:       control-center
 Requires:       libwnck3
 Requires:       pyatspi
-Requires:       pyxdg
 Requires:       speech-dispatcher
 Requires:       speech-dispatcher-python
 Requires:       liblouis-python
@@ -88,6 +86,9 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
 
 %changelog
+* Tue Jan 28 2014 Rui Matos <rmatos@redhat.com> - 3.6.3-4
+- Resolves: rhbz#1058678 - Remove dependency on PyXDG
+
 * Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 3.6.3-3
 - Mass rebuild 2014-01-24
 
