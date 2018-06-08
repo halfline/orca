@@ -1,64 +1,62 @@
-%global debug_package %{nil}
-
-%define brlapi_version 0.5.1
-%define brltty_version 3.9
-
 Name:           orca
-Version:        3.6.3
-Release:        4%{?dist}
+Version:        3.28.1
+Release:        1%{?dist}
 Summary:        Assistive technology for people with visual impairments
 
-Group:          User Interface/Desktops
 License:        LGPLv2+
-URL:            http://projects.gnome.org/orca/
-#VCS: git:git://git.gnome.org/orca
-Source0:        http://download.gnome.org/sources/orca/3.6/orca-%{version}.tar.xz
+URL:            https://wiki.gnome.org/Projects/Orca
+Source0:        https://download.gnome.org/sources/%{name}/3.28/%{name}-%{version}.tar.xz
 
-BuildRequires:  brlapi-devel >= %{brlapi_version}
+BuildArch:      noarch
+
 BuildRequires:  python-brlapi
-BuildRequires:  brltty >= %{brltty_version}
+BuildRequires:  pkgconfig(atk-bridge-2.0)
+BuildRequires:  pkgconfig(atspi-2)
+BuildRequires:  pkgconfig(liblouis)
+BuildRequires:  pkgconfig(pygobject-3.0)
+BuildRequires:  brlapi-devel
+BuildRequires:  brltty
 BuildRequires:  gettext
+BuildRequires:  git
 BuildRequires:  intltool
-BuildRequires:  pygobject3-devel
-BuildRequires:  pyatspi
-BuildRequires:  at-spi2-core-devel
-BuildRequires:  dbus-python
-BuildRequires:  liblouis-python
-BuildRequires:  liblouis-devel
 BuildRequires:  speech-dispatcher-python
 BuildRequires:  gtk3-devel
 BuildRequires:  itstool
 Obsoletes:      gnopernicus
 Provides:       gnopernicus
 
-Requires:       control-center
+BuildRequires:  /usr/bin/desktop-file-validate
+
 Requires:       libwnck3
-Requires:       pyatspi
 Requires:       speech-dispatcher
 Requires:       speech-dispatcher-python
-Requires:       liblouis-python
-Requires:       python-brlapi >= %{brlapi_version}
+Requires:       python-brlapi
+Requires:       pyatspi
+
+Patch0:         0001-configure-drop-python3-dep.patch
 
 %description
-Orca is a flexible, extensible, and powerful assistive technology for people
-with visual impairments. Using various combinations of speech synthesis,
-braille, and magnification, Orca helps provide access to applications and
-toolkits that support AT-SPI (e.g. the GNOME desktop).
+Orca is a screen reader that provides access to the graphical desktop via
+user-customizable combinations of speech and/or braille. Orca works with
+applications and toolkits that support the assistive technology service
+provider interface (AT-SPI), e.g. the GNOME desktop.
 
 %prep
-%setup -q
+%autosetup -S git
+
 
 %build
+autoreconf -f -i
 %configure
 make %{?_smp_mflags}
 
 
 %install
-make install DESTDIR=$RPM_BUILD_ROOT
+%make_install
 
 %find_lang %{name} --with-gnome
 
-find $RPM_BUILD_ROOT -name '*.la' | xargs rm -f
+find %{buildroot} -name '*.la' -delete
 
 %post
 touch --no-create %{_datadir}/icons/hicolor &>/dev/null || :
@@ -73,19 +71,27 @@ fi
 %posttrans
 gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 
+%check
+desktop-file-validate %{buildroot}%{_sysconfdir}/xdg/autostart/orca-autostart.desktop
+
 %files -f %{name}.lang
-%doc AUTHORS COPYING NEWS README
+%license COPYING
+%doc AUTHORS NEWS README
 %{_bindir}/orca
-%{python_sitearch}/orca
+%{python_sitelib}/orca/
 %{_datadir}/icons/hicolor/*/apps/orca.png
 %{_datadir}/icons/hicolor/scalable/apps/orca.svg
+%{_datadir}/icons/hicolor/symbolic/apps/orca-symbolic.svg
 %{_datadir}/orca
-%{_datadir}/applications/orca.desktop
 %{_sysconfdir}/xdg/autostart/orca-autostart.desktop
-%{_mandir}/man1/orca.1.gz
+%{_mandir}/man1/orca.1*
 
 
 %changelog
+* Fri Jun 08 2018 Ray Strode <rstrode@redhat.com> - 3.28.1-1
+- Update to 3.28.1
+  Resolves: #1569747
+
 * Tue Jan 28 2014 Rui Matos <rmatos@redhat.com> - 3.6.3-4
 - Resolves: rhbz#1058678 - Remove dependency on PyXDG
 
@@ -186,7 +192,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 * Tue Sep 20 2011 Matthias Clasen <mclasen@redhat.com> 3.1.92-1
 - Update to 3.1.92
 
-* Tue Sep  9 2011 Matthias Clasen <mclasen@redhat.com> 3.1.91-1
+* Fri Sep  9 2011 Matthias Clasen <mclasen@redhat.com> 3.1.91-1
 - Update to 3.1.91
 
 * Thu Aug 18 2011 Matthias Clasen <mclasen@redhat.com> 3.1.5-1
@@ -228,7 +234,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor &>/dev/null || :
 * Tue Mar 22 2011 Matthias Clasen <mclasen@redhat.com> 2.91.92-1
 - Update to 2.91.92
 
-* Mon Mar  3 2011 Matthias Clasen <mclasen@redhat.com> 2.91.91-1
+* Thu Mar  3 2011 Matthias Clasen <mclasen@redhat.com> 2.91.91-1
 - Update to 2.91.91
 - Drop a space-saving hack
 
@@ -389,7 +395,7 @@ http://lists.fedoraproject.org/pipermail/desktop/2010-October/006568.html
 * Wed Dec 17 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.3-2
 - Update to 2.25.3
 
-* Wed Dec  4 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.2-2
+* Thu Dec  4 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.2-2
 - Rebuild for Python 2.6
 
 * Wed Dec  3 2008 Matthias Clasen <mclasen@redhat.com> - 2.25.2-1
@@ -527,7 +533,7 @@ http://lists.fedoraproject.org/pipermail/desktop/2010-October/006568.html
 * Thu Jan 11 2007 Matthias Clasen <mclasen@redhat.com> - 2.17.5-1
 - Update to orca 2.17.5
 
-* Wed Dec 19 2006 Matthias Clasen <mclasen@redhat.com> - 2.17.4-1
+* Tue Dec 19 2006 Matthias Clasen <mclasen@redhat.com> - 2.17.4-1
 - Update to orca 2.17.4
 
 * Thu Dec  7 2006 Jeremy Katz <katzj@redhat.com> - 2.17.3-2
